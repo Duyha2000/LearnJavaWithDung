@@ -1,0 +1,25 @@
+// Viết vào file:
+//        PrintWriter pw = new PrintWriter("data.txt");
+//        for (int i = 1; i <= 20; i++)
+//            pw.println(i);
+//        pw.println("Xin chao!");
+//        pw.close();
+// In ra các số chẵn từ 1 - 50, vào file data2.txt
+//PrintWriter pw = new PrintWriter("data2.txt");
+//        for (int i = 1; i <= 50; i++) {
+//        if (i % 2 == 0) {
+//        pw.print(i);
+//            }
+//                    }
+//                    pw.close();
+
+-------
+
+// Input
+File f = new File("data.txt");
+Scanner fi = new Scanner(f);
+System.out.println("Data read from data file");
+while (fi.hasNextLine()) {
+    System.out.println(fi.nextLine().trim());
+}
+fi.close();
