@@ -1,0 +1,45 @@
+package B2;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // https://docs.google.com/document/d/130YMvQO2tqBXioqX3mvP7hk9l58QUsWZmrhXUXrG_h4/edit?tab=t.0
+        // argument:
+        display(5);
+        display(7);
+        display(9);
+        Scanner scanner = new Scanner(System.in);
+        int a, b;
+        a = Integer.parseInt(scanner.nextLine()); // ko xuong hang
+        b = Integer.parseInt(scanner.nextLine()); // ko xuong hang
+
+        int perimeterV = perimeter(a, b);
+        System.out.println(perimeterV);
+
+        sumNumber(a);
+
+    }
+
+    public static void sumNumber(int a) {
+        for (int i = 0; i <= a; i++) {
+            System.out.println(i);
+        }
+    }
+
+    public static int perimeter(int a, int b) {
+        return (a + b) * 2;
+    }
+
+    // parameter:
+    public static void display(int x) {
+        sumNumber(x);
+    }
+    // Viet 1 function tinh chu vi hinh chu nhat:
+
+
+    // Function + array:
+    // void: in ra kết quả
+    // double/ int/ bool: tính toán -> return về giá trị
+    // cố gắng hạn chế viết code trong main
+}

@@ -1,3 +1,5 @@
+package B1;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -38,6 +40,7 @@ public class Main {
                     while (fi.hasNextLine() && startNumber <= 16) {
                         System.out.println(startNumber++ + ". " + fi.nextLine().trim());
                     }
+
                     // Đóng fi sau khi liệt kê 16 màu
                     fi.close();
 
@@ -130,18 +133,8 @@ public class Main {
             }
         } while (choice != 4);
 
-        /*
-            Enter your name: Edward Platt
-            Describe yourself: I am a CMSC student with a major in Computer Science
-            Due Date: 02/10
-            Username: Edward Platt
-            User Description: I am a CMSC203 student with a major in Computer Science
-            Date: 02/10
 
-         */
         inputUser.close();
-
-
     }
 }
 

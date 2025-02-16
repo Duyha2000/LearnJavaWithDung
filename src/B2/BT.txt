@@ -1,0 +1,84 @@
+BT0:
+int n;
+n = Integer.parseInt(scanner.nextLine());
+int tong = sum(n);
+System.out.println("Sum: " + tong);
+
+public static int sum(int n) {
+    int sum = 0;
+    for (int i = 1; i <= n; i++) {
+        sum += i;
+    }
+    return sum;
+}
+---
+BT1:
+public static int sum(int n) {
+    int sum = 0;
+    for (int i = 1; i <= n; i++) {
+        sum += i * i * i; // Math.sqrt
+    }
+    return sum;
+}
+--
+BT2:
+public static int factorial(int n) {
+    // 5! = 1.2.3.4.5
+    int factorial = 1;
+    for (int i = 1; i <= n; i++) {
+        factorial *= i;
+
+    }
+    return factorial;
+}
+--
+BT3:
+public static double chuVi(double r) {
+    return (2 * 3.14 * r);
+}
+
+public static double dienTich(double r) {
+    return (3.14 * r * r);
+}
+
+--
+BT4:
+// count = 0 -> count ++
+public static void prime(int m) {
+    int count = 0;
+    for (int i = 1; i <= m; i++) {
+        if (m % i == 0) {
+            count++;
+        }
+    }
+    if (count == 2) {
+        System.out.println("Prime");
+    } else
+        System.out.println("Not prime");
+}
+--
+BT10:
+File f = new File("C:\\Users\\Duy\\LearnJavaWithDung\\src\\B2\\data.txt");
+Scanner fi = new Scanner(f);
+// Viet ket qua vao file output.txt: "6 is a perfect number"
+
+int n = Integer.parseInt(fi.nextLine());
+hoanHao(n);
+
+fi.close();
+
+public static void hoanHao(int n) throws FileNotFoundException {
+// n = 6
+PrintWriter pw = new PrintWriter("C:\\Users\\Duy\\LearnJavaWithDung\\src\\B2\\output.txt");
+int sum = 0;
+for (int i = 1; i < n; i++) {
+    if (n % i == 0) {
+        sum += i;
+    }
+}
+if (sum == n) {
+    pw.println(n + " is perfect");
+} else
+    pw.println(n + " is not perfect");
+pw.close();
+}
