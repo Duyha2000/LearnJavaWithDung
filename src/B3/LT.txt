@@ -1,0 +1,77 @@
+//
+//        ArrayList<Integer> arrs = new ArrayList<>();
+//        Scanner scanner = new Scanner(System.in);
+//        // Nhập 5 phẩn tử vào array, sau đấy in ra màn hình:
+//        for (int i = 0; i < 5; i++) {
+//            // Nhập 1 số -> thêm số đấy vào arraylist:
+//            arrs.add(Integer.valueOf(scanner.nextLine()));
+//        }
+//        // scanner.nextLine():
+//        for (Integer ele : arrs) {
+//            System.out.print(ele + " ");
+//        }
+  // Array, Function
+        // ArrayList:
+
+        // Không thể mở rộng kích thước ( edit, delete, add)
+//        ArrayList<Integer> arrs = new ArrayList<>();
+//
+//        // add:
+//        arrs.add(4);
+//        arrs.add(5);
+//        arrs.add(6);
+//        // 4 5 6
+//        // 4 5 [3] 6
+//        // Thêm số 3 vào giữa số 5 và 6:
+//        arrs.add(2, 3);
+//
+//        // print number in array:
+//        // for each: for i
+//        for (Integer num : arrs) {
+//            System.out.println(num);
+//        }
+
+// Arrays.asList(2,3,4,5): khi bết trước các phần tử trong Array
+// ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(2, 3, 4, 5));
+
+// remove element:
+// numbers.remove(2); // xóa đi 1 phần tử ở 1 vị trí
+
+// xóa tất cả phần tử: arr.clear()
+
+// thêm các phần tử array thứ 2 vào array đầu:
+array.addAll(array2)
+
+
+
+        /*
+        Bài Tập 8: Xóa một phần tử khỏi mảng
+            Phần 1: Yêu cầu người dùng nhập một mảng và một chỉ số. Loại bỏ phần tử tại chỉ số đã chỉ định.
+            Ví dụ Đầu Vào: [4, 6, 7, 8], indexDel = 2
+            Ví dụ Đầu Ra: [4, 6, 8]
+            ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(4,6,7,8));
+            numbers.remove(2);
+
+            for (int ele : numbers){
+                System.out.println(ele);
+            }
+            —-----
+            Phần 2: Yêu cầu người dùng nhập một mảng và "một số". Loại bỏ tất cả các lần xuất hiện của số đó trong mảng.
+            Ví dụ Đầu Vào: [5, 6, 7, 6, 6], "numberDel = 6"
+            Ví dụ Đầu Ra: [5, 7]
+         */
+        ArrayList<Integer> arrs = new ArrayList<>();
+        Scanner scan = new Scanner(System.in);
+        ArrayList<Integer> arrs2 = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            arrs.add(Integer.valueOf(scan.nextLine()));
+        }
+        for (Integer ele : arrs) {
+            if (ele != 6)
+                arrs2.add(ele);
+        }
+        arrs.clear();
+        arrs.addAll(arrs2);
+        for (Integer eleNew : arrs) {
+            System.out.println(eleNew);
+        }

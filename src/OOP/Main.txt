@@ -1,0 +1,37 @@
+// Class - Object:
+
+// Class 1 khung: attribute, hành động ( Person, Car)
+// Object: Duy("Duy",18,"HCM") và Dũng("Dũng",18,"HN") -> Tạo ra từ class Person(name, age, address)
+// Object: BMW, Audi  -> Car()
+
+// 12A -> 1 lớp (id, score, teacher) -> 40 object
+
+// Khởi tạo đối tượng từ Class Person: new
+Person Duy = new Person("Duy", 18, "HCM"); // argument
+// In ra thông tin tuổi: getter:
+Duy.setAge(20); // thay đổi giá trị dùng setter
+System.out.println(Duy.getAge()); // in ra giá trị: getter
+// các thông tin cá nhân (private) -> getter and setter method
+
+Person Dung = new Person(); // argument: "",0,""
+// Dung.age = 18; // -> thay đổi value
+// Dung.display();
+System.out.println(Dung + " Dung");
+
+// Duy.display();
+System.out.println(Duy);
+
+Rectangle r1 = new Rectangle(4, 3);
+r1.setLength(5);
+r1.setWidth(4);
+System.out.println(r1);
+System.out.println(r1.getLength());
+System.out.println(r1.getWidth());
+Rectangle r2 = new Rectangle();
+r2.setWidth(3);
+r2.setLength(4);
+System.out.println(r2);
+// B1: Khởi tạo 1 Class Rectangle
+// B2: Khởi tạo length = 4, width = 3 bằng constructor, khởi tạo constructor no parameter
+// B3: Change value length = 6, width = 4 bằng setter method
+// B4: In ra toàn bộ thông tin bằng toString, in ra length và width bằng getter method
