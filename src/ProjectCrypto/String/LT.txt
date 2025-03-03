@@ -1,0 +1,22 @@
+# String
+
++ Khái niệm:
+
++ Khai báo chuỗi:
+
++ Các phương thức của lớp String:
+
++ So sánh chuỗi:
+
++ For để in ra String ( 2 cách )
+
+
+# StringBuilder
+
++ Khái niệm:
+
++ Các phương thức thường dùng:
+append():
+insert():
+delete():
+toString():
