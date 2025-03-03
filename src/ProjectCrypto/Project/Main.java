@@ -8,14 +8,14 @@ public class Main {
 
         // Kiểm tra mã hóa và giải mã Caesar Cipher
         System.out.println("Caesar Cipher Test:");
-        //String encryptedCaesar = CryptoManager.caesarEncryption(plainText, caesarKey);
-        //System.out.println("Encrypted Caesar: " + encryptedCaesar);
+        String encryptedCaesar = CryptoManager.caesarEncryption(plainText, caesarKey);
+        System.out.println("Encrypted Caesar: " + encryptedCaesar);
 
-        // String decryptedCaesar = CryptoManager.caesarDecryption(encryptedCaesar, caesarKey);
-        //System.out.println("Decrypted Caesar: " + decryptedCaesar);
+        String decryptedCaesar = CryptoManager.caesarDecryption(encryptedCaesar, caesarKey);
+        System.out.println("Decrypted Caesar: " + decryptedCaesar);
 
         // Kiểm tra mã hóa và giải mã Bellaso Cipher
-        System.out.println("\nBellaso Cipher Test:");
+        // System.out.println("\nBellaso Cipher Test:");
         //String encryptedBellaso = CryptoManager.bellasoEncryption(plainText, bellasoStr);
         // System.out.println("Encrypted Bellaso: " + encryptedBellaso);
 
