@@ -1,22 +1,39 @@
 # String
 
-+ Khái niệm:
+ System.out.println(name.charAt(0)); // lấy ký tự
+        // size string:
+        System.out.println(name.length()); // 5
+        // last character:
+        System.out.println(name.charAt(name.length() - 1));
+        // vòng lặp for để lấy từng ký tự trong String:
+        for (int i = 0; i < name.length(); i++) {
+            System.out.print(name.charAt(i) + " ");
+        }
+        System.out.println();
+        // forEach:
+        for (char n : name.toCharArray()) {
+            System.out.print(n + " ");
+        }
 
-+ Khai báo chuỗi:
-
-+ Các phương thức của lớp String:
-
-+ So sánh chuỗi:
-
-+ For để in ra String ( 2 cách )
-
+        String name1 = "Dung";
+        String name2 = "Dung";
+        // compare 2 string
+        if (name1.equals(name2)) {
+            System.out.println("Equals");
+        } else {
+            System.out.println("Not equals");
+        }
 
 # StringBuilder
+// String - StringBuilder
+String name = "Hello"; // arr.get() - arr[...]
 
-+ Khái niệm:
+// StringBuilder:
+StringBuilder stringBuilder = new StringBuilder(name);
 
-+ Các phương thức thường dùng:
-append():
-insert():
-delete():
-toString():
+// append: chèn vào cuối chuỗi
+stringBuilder.append(" World");
+
+// insert: chèn 1 vị trí
+stringBuilder.insert(3, "Hi");
+System.out.println(stringBuilder);

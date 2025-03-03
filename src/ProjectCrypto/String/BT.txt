@@ -20,30 +20,11 @@ Yêu cầu:
 
 Dùng String để giải quyết bài toán này.
 Ví dụ:
-Input: "banana", 'a'
+Input: "banana", 'a' -> for loop
 Output: 3
 
-Bài tập 3: Thay thế tất cả các ký tự trong chuỗi
-Viết một hàm thay thế tất cả các ký tự trong chuỗi theo quy tắc sau: Thay ký tự 'a' bằng 'o', 'e' bằng 'u', và 'i' bằng 'y'.
 
-Yêu cầu:
-
-Dùng StringBuilder để xử lý chuỗi này.
-Ví dụ:
-
-Input: "apple", Output: "opplo"
-
-
- * Bài tập 4: Xây dựng chương trình tìm chuỗi dài hơn trong hai chuỗi nhập từ
- * bàn phím
- * Nhập vào hai chuỗi text1 và text2
- * Sử dụng phương thức length() để tìm kích thước hai chuỗi, so sánh chúng và in
- * ra chuỗi dài hơn
- * Input: fibonacci - palindrome
- * Output: palindrome
-
-
-Bài tập 5: Kiểm tra chuỗi có chứa một ký tự hay không
+Bài tập 3: Kiểm tra chuỗi có chứa một ký tự hay không
 Viết một hàm kiểm tra xem chuỗi có chứa một ký tự cụ thể hay không. Nếu có, trả về true, nếu không trả về false.
 
 Yêu cầu:
@@ -57,68 +38,17 @@ Output: true
 Input: "hello", 'z'
 Output: false
 
-Bài tập 1: So sánh hai chuỗi
+Bài tập 4: So sánh hai chuỗi
 Viết một hàm so sánh hai chuỗi và trả về kết quả:
 
 Nếu hai chuỗi giống nhau, trả về true.
 Nếu hai chuỗi khác nhau, trả về false.
-Yêu cầu:
 
-Dùng phương thức equals() để so sánh chuỗi.
 Ví dụ:
 
-java
-Copy
 Input: "hello", "hello"
 Output: true
 
 Input: "hello", "world"
 Output: false
-Bài tập 2: So sánh chuỗi không phân biệt chữ hoa, chữ thường
-Viết một hàm so sánh hai chuỗi mà không phân biệt chữ hoa và chữ thường. Nếu hai chuỗi giống nhau (không phân biệt hoa thường), trả về true, ngược lại trả về false.
 
-Yêu cầu:
-
-Dùng phương thức equalsIgnoreCase() để so sánh.
-Ví dụ:
-
-Input: "hello", "HELLO"
-Output: true
-
-Input: "hello", "world"
-Output: false
-
-Bài tập 3: Dùng StringBuilder để xây dựng chuỗi
-Viết một hàm sử dụng StringBuilder để xây dựng một chuỗi từ một mảng các chuỗi con. Nối tất cả các chuỗi trong mảng thành một chuỗi duy nhất.
-
-Yêu cầu:
-
-Dùng StringBuilder để thêm các chuỗi con vào nhau.
-Ví dụ:
-
-Input: ["Hello", " ", "World", "!"]
-Output: "Hello World!"
-
-Bài tập 4: Dùng StringBuilder để xóa ký tự tại một vị trí
-Viết một hàm sử dụng StringBuilder để xóa ký tự tại một vị trí nhất định trong chuỗi.
-
-Yêu cầu:
-
-Nhận vào một chuỗi và chỉ số vị trí cần xóa ký tự.
-Trả về chuỗi mới sau khi đã xóa ký tự.
-
-Ví dụ:
-
-Input: "hello", 1
-Output: "hllo"
-
-Bài tập 5: Dùng StringBuilder để đảo ngược một chuỗi
-Viết một hàm sử dụng StringBuilder để đảo ngược một chuỗi.
-
-Yêu cầu:
-
-Dùng StringBuilder và phương thức reverse() để đảo ngược chuỗi.
-
-Ví dụ:
-Input: "hello"
-Output: "olleh"
