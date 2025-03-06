@@ -1,71 +1,128 @@
 package ProjectCrypto.Project;
 
 public class CryptoManager {
-    // ASCII 32 to ASCII 95
-    // LOWER_RANGE and UPPER_RANGE  RANGE:
-    public static final int LOWER_RANGE = 32;
-    public static final int UPPER_RANGE = 95;
 
-    public static final int RANGE = (UPPER_RANGE - LOWER_RANGE) + 1; // 64
+    // Định nghĩa phạm vi ASCII hợp lệ
+    private static final int LOWER_RANGE = 32;  // ASCII cho ký tự space
+    private static final int UPPER_RANGE = 95;  // ASCII cho ký tự '_'
+    private static final int RANGE = UPPER_RANGE - LOWER_RANGE + 1;
 
-    // The parameter plainText is the string to be encrypted.
-    // The method returns true if all characters are within the allowable bounds, false if any character is outside. (for)
+    // Phương thức kiểm tra xem chuỗi có nằm trong phạm vi ASCII hợp lệ không
     public static boolean isStringInBounds(String plainText) {
-        // plainText:
-        int count = 0;
-        // 'ABC'd
         for (int i = 0; i < plainText.length(); i++) {
-            if (plainText.charAt(i) < LOWER_RANGE || plainText.charAt(i) > UPPER_RANGE) {
-                count++;
-            }
+            char c = plainText.charAt(i);
+            if (c < LOWER_RANGE || c > UPPER_RANGE) return false;
         }
-        return count <= 0; // thỏa mãn dkien -> true
+        return true;
     }
 
-    // plainText: ABCD
-    // key = 3
-    // The parameter integer key specifies an offset and each character in plainText is replaced by the character the specified distance away from it.
-    //	The method returns the encrypted string.
+    // Mã hóa Caesar Cipher
     public static String caesarEncryption(String plainText, int key) {
         if (!isStringInBounds(plainText)) {
-            System.out.println("The selected string is not in bounds, Try again");
+            return "The selected string is not in bounds, Try again.";
         }
-        StringBuilder newText = new StringBuilder(); // newText = ""
-        // Lấy từng ký tự plainText + key -> thêm nó vào newText ( newText.append)
-        for (int i = 0; i < plainText.length(); i++) {
-            int shifted = plainText.charAt(i) + key; // Ký tự sau khi di chuyển (ASCII)
-            // shifted -> 120 - RANGE(64) = 56
+
+        StringBuilder encryptedText = new StringBuilder();
+        for (char c : plainText.toCharArray()) {
+            // Dịch chuyển ký tự theo key
+            int shifted = c + key;
+
+            // Kiểm tra nếu shifted vượt qua phạm vi
             if (shifted > UPPER_RANGE) {
-                shifted -= RANGE; // 64
-                // 20 + RANGE
+                shifted -= RANGE;  // Quay vòng nếu vượt qua UPPER_RANGE
             } else if (shifted < LOWER_RANGE) {
-                shifted += RANGE;
+                shifted += RANGE;  // Quay vòng nếu nhỏ hơn LOWER_RANGE
             }
-            newText.append((char) shifted);
+
+            // Thêm ký tự đã dịch chuyển vào kết quả
+            encryptedText.append((char) shifted);
         }
-        return newText.toString();
+        return encryptedText.toString();
     }
 
+    // Giải mã Caesar Cipher
     public static String caesarDecryption(String encryptedText, int key) {
-        if (!isStringInBounds(encryptedText)) {
-            System.out.println("The selected string is not in bounds, Try again");
-        }
-        StringBuilder descryptedText = new StringBuilder();
-        for (int i = 0; i < encryptedText.length(); i++) {
-            int shifted = encryptedText.charAt(i) - key;
-            // encrypt: 6-7-8/ key = 2
-            // descrypy: 4-5-6
-            // start 0 - end 10 (11-12-13)
+        StringBuilder decryptedText = new StringBuilder();
+        for (char c : encryptedText.toCharArray()) {
+            // Giải mã bằng cách dịch chuyển ngược lại theo key
+            int shifted = c - key;  // Dịch chuyển ngược lại bằng cách trừ key
+            // Kiểm tra nếu shifted vượt qua phạm vi
             if (shifted > UPPER_RANGE) {
-                shifted -= RANGE; // 64
-                // 20 + RANGE
+                shifted -= RANGE;  // Quay vòng nếu vượt qua UPPER_RANGE
             } else if (shifted < LOWER_RANGE) {
-                shifted += RANGE;
+                shifted += RANGE;  // Quay vòng nếu nhỏ hơn LOWER_RANGE
             }
-            descryptedText.append((char) shifted);
+            decryptedText.append((char) shifted);
         }
-        return descryptedText.toString();
+        return decryptedText.toString();
+    }
 
+    // Mã hóa Bellaso Cipher
+    public static String bellasoEncryption(String plainText, String bellasoStr) {
+        StringBuilder encryptedText = new StringBuilder();
+        // helloEveryone 13
+        // abcd 4
+        StringBuilder extendedKey = new StringBuilder(bellasoStr);
+
+        for (int i = bellasoStr.length(); i < plainText.length(); i++) {
+            extendedKey.append(bellasoStr.charAt(i % bellasoStr.length())); // Lặp lại từ đầu chuỗi
+        }
+
+        // Mở rộng từ khóa sao cho chiều dài của encryptedText bằng plainText
+        for (int i = 0; i < plainText.length(); i++) {
+            char c = plainText.charAt(i);
+            char keyChar = extendedKey.charAt(i);
+            // Dịch chuyển ký tự theo giá trị của từ khóa
+            int shifted = c + keyChar;
+
+            // Quay vòng trong phạm vi từ LOWER_RANGE đến UPPER_RANGE
+            // Tính toán lại để đưa shifted vào phạm vi từ 32 đến 95
+
+            // Quay vòng trong phạm vi từ LOWER_RANGE đến UPPER_RANGE
+            while (shifted > UPPER_RANGE) {
+                shifted -= RANGE;  // Quay vòng nếu vượt qua UPPER_RANGE
+            }
+
+            // Nếu shifted < LOWER_RANGE, tiếp tục cộng RANGE cho đến khi nằm trong phạm vi hợp lệ
+            while (shifted < LOWER_RANGE) {
+                shifted += RANGE;  // Quay vòng nếu nhỏ hơn LOWER_RANGE
+            }
+            // Thêm ký tự đã mã hóa vào chuỗi kết quả
+            encryptedText.append((char) shifted);
+        }
+
+        return encryptedText.toString();  // Trả về chuỗi mã hóa
+    }
+
+    public static String bellasoDecryption(String encryptedText, String bellasoStr) {
+        StringBuilder decryptedText = new StringBuilder();
+
+        // Mở rộng từ khóa sao cho chiều dài của bellasoStr bằng encryptedText
+        for (int i = 0; i < encryptedText.length(); i++) {
+            char c = encryptedText.charAt(i);
+
+            // Lấy ký tự từ bellasoStr tại vị trí i % bellasoStr.length()
+            char keyChar = bellasoStr.charAt(i % bellasoStr.length());
+
+            // Dịch chuyển ngược lại (trừ giá trị shift của từ khóa)
+            int shifted = c - keyChar;
+
+            // Kiểm tra nếu shifted vượt qua phạm vi ASCII hợp lệ
+            while (shifted > UPPER_RANGE) {
+                shifted -= RANGE;  // Quay vòng nếu vượt qua UPPER_RANGE
+            }
+
+            // Nếu shifted < LOWER_RANGE, tiếp tục cộng RANGE cho đến khi nằm trong phạm vi hợp lệ
+            while (shifted < LOWER_RANGE) {
+                shifted += RANGE;  // Quay vòng nếu nhỏ hơn LOWER_RANGE
+            }
+
+            decryptedText.append((char) shifted);
+        }
+
+        return decryptedText.toString();  // Trả về chuỗi giải mã
     }
 }
+
+
 

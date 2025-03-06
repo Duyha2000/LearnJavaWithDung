@@ -15,12 +15,12 @@ public class Main {
         System.out.println("Decrypted Caesar: " + decryptedCaesar);
 
         // Kiểm tra mã hóa và giải mã Bellaso Cipher
-        // System.out.println("\nBellaso Cipher Test:");
-        //String encryptedBellaso = CryptoManager.bellasoEncryption(plainText, bellasoStr);
-        // System.out.println("Encrypted Bellaso: " + encryptedBellaso);
+        System.out.println("\nBellaso Cipher Test:");
+        String encryptedBellaso = CryptoManager.bellasoEncryption(plainText, bellasoStr);
+        System.out.println("Encrypted Bellaso: " + encryptedBellaso);
 
-        // String decryptedBellaso = CryptoManager.bellasoDecryption(encryptedBellaso, bellasoStr);
-        // System.out.println("Decrypted Bellaso: " + decryptedBellaso);
+        String decryptedBellaso = CryptoManager.bellasoDecryption(encryptedBellaso, bellasoStr);
+        System.out.println("Decrypted Bellaso: " + decryptedBellaso);
 
     }
 }

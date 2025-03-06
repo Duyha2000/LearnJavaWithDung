@@ -1,0 +1,55 @@
+package org.example;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class MathUtilsTest {
+
+    @Test
+    void add() {
+        assertEquals(MathUtils.add(2,3),5);
+    }
+}
+
+1.caesarDecryption
+shifted + key = 300 -> - RANGE đến khi nào nằm trong khoản 32, 95 thì dừng lại
+
+2.
+Làm dài string:
+
+plainText: hellowo
+bellasoStr: abcd
+
+-> Làm dài bellasoStr sao cho length = với length plainText
+-> + 3 ký tự (thay đổi bellasoTr nên phải dùng StringBuilder)
+
+start từ index: length -> plainText.length; i++
+        -> chèn ký tự 5,6,7
+
+
+plainText: xinchaocacban (13 char)
+bellasoStr: abcd
+-> +9 ký tự (abcdabcda)
+
+---
+        3. Dùng for để + ký tự plainText và bellasoStr lần lượt với nhau -> ép trong range 32 95
+        -> append vào encryptedText
+
+--
+
+Unit test:
+<dependencies>
+        <!-- Thư viện để sử dụng thư viện Apache Commons -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+    </dependencies>
+
+        --
+Các phương thức kiểm tra trong JUnit (Assertions)
+assertEquals(expected, actual)	Kiểm tra giá trị mong đợi và giá trị thực tế có bằng nhau không
+assertTrue(condition)	Kiểm tra điều kiện đúng
+assertFalse(condition)	Kiểm tra điều kiện sai
